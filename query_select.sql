@@ -7,12 +7,7 @@ CREATE TABLE rekap_transaksi_pembeli (
         REFERENCES pembeli(ID_Pembeli)
 );
 
-INSERT INTO rekap_transaksi_pembeli (
-    ID_Pembeli,
-    Total_Transaksi,
-    Total_Barang_Dibeli,
-    Total_Pembayaran
-)
+
 SELECT
     pb.ID_Pembeli,
     COUNT(t.ID_Transaksi),
