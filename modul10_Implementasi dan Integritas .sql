@@ -43,3 +43,10 @@ INSERT INTO pembayaran (Metode_Pembayaran, Jumlah_Pembayaran, Status_Pembayaran,
 
 INSERT INTO pengiriman (Alamat_Pengiriman, Kurir, No_Resi, Status_Pengiriman, ID_Transaksi) VALUES
 ('Jl. Melati No. 12, Bandung', 'JNE', 'JNE123456789', 'Dikirim', 1);
+
+--Integritas Referensial
+INSERT INTO produk (Nama_Produk, Kondisi, Harga, ID_Kategori, ID_Penjual)
+VALUES ('Jaket Denim Levi''s', 'Bekas - Sangat Baik', 250000.00, 2, 1);
+DELETE FROM pengguna WHERE ID_Pengguna = 1;
+UPDATE kategori SET ID_Kategori = 10 WHERE ID_Kategori = 1;
+
