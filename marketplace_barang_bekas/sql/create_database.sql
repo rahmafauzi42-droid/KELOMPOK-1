@@ -1,0 +1,3 @@
+CREATE DATABASE db_marketplace_barang_bekas;
+
+USE db_marketplace_barang_bekas;
