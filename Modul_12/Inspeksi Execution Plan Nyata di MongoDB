@@ -1,0 +1,35 @@
+db.produk.explain("executionStats").aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "id_kategori",
+      foreignField: "_id",
+      as: "kategori"
+    }
+  },
+  { $unwind: "$kategori" },
+  {
+    $match: {
+      "kategori.nama_kategori": "Elektronik"
+    }
+  },
+  {
+    $lookup: {
+      from: "users",
+      localField: "id_penjual",
+      foreignField: "_id",
+      as: "penjual"
+    }
+  },
+  { $unwind: "$penjual" },
+  {
+    $project: {
+      _id: 0,
+      nama_produk: 1,
+      kondisi: 1,
+      harga: 1,
+      lokasi: 1,
+      nama_penjual: "$penjual.nama"
+    }
+  }
+])
